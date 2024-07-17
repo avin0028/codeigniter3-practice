@@ -11,3 +11,5 @@
 <form method="post">
     <input type="submit" name="job" value="logout">
 </form>
+
+</html>
