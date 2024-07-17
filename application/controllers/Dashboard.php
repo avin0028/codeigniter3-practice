@@ -6,7 +6,20 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        // $this->load->view('signin');
-        redirect('/signin', 'refresh');
+
+        if (!isset($this->session->nickname)) {
+            redirect('/signin', 'refresh');
+        }
+
+
+        $data['title'] = "داشبورد";
+        $data['name'] = $this->session->nickname;
+
+
+        $this->load->library('form_validation');
+        $this->load->view('dashboard', $data);
+        if ($this->input->post('job') == 'logout') {
+            $this->session->unset_userdata(array('username', 'nickname'));
+        }
     }
 }
