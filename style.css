@@ -1,0 +1,17 @@
+.leftside {
+    width: 15%;
+    display: inline-block;
+    margin: 10px;
+    height: 100%;
+    border: solid gray 3px;
+    border-radius: 10px;
+}
+
+.rightside {
+    width: calc(80% - 90px);
+    margin: 10px;
+    display: inline-block;
+    border: solid gray 3px;
+    border-radius: 10px;
+    height: 100%;
+}
