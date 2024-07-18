@@ -12,6 +12,21 @@ class Users_model extends CI_Model
         $query = $this->db->get_where('users', $data);
         return $query->row_array();
     }
+
+    public function setNickname()
+    {
+        $data = array("nickname" => $this->input->post('newname'));
+        $this->db->where('username', $_SESSION['username']);
+        $this->db->update('users', $data);
+        $_SESSION['nickname'] = $data['nickname'];
+        echo "نام شما تغییر یافت";
+    }
+    public function removeUser()
+    {
+        // NOTE: Removing a user means removing every related factories,employees etc with it;
+        $this->db->where('username', $_SESSION['username']);
+        $this->db->delete('users');
+    }
     public function setUser()
     {
         $input_username = $this->input->post('username');

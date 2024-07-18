@@ -18,8 +18,20 @@ class Dashboard extends CI_Controller
 
         $this->load->library('form_validation');
         $this->load->view('dashboard', $data);
+
         if ($this->input->post('job') == 'logout') {
             $this->session->unset_userdata(array('username', 'nickname'));
+        }
+        if ($this->input->post('job') == 'changename') {
+            $this->load->model('users_model');
+            $this->users_model->setNickname();
+        }
+        if ($this->input->post('job') == "deleteaccount") {
+            $this->load->model('users_model');
+            $this->users_model->removeUser();
+            echo "حساب شما حذف شد";
+            $this->session->unset_userdata(array('username', 'nickname'));
+            redirect('/signin', 'refresh');
         }
     }
 }

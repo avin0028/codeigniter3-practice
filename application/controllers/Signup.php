@@ -24,12 +24,12 @@ class Signup extends CI_Controller
 
             $this->load->model('users_model');
             $result = $this->users_model->setUser();
-            // $userData = array(
+            $userData = array(
                 "username" => $result['username'],
-                "nickname" => $result['nickname'],
+                "nickname" => $result['nickname']
             );
             $this->session->set_userdata($userData);
-            // redirect('/', 'refresh');
+            redirect('/', 'refresh');
         }
     }
 }
