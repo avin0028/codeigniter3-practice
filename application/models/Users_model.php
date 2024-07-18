@@ -35,11 +35,13 @@ class Users_model extends CI_Model
             echo "duplicate username";
             return;
         }
+        $date = date('sihmY'); //second,minute,hour, month, year
 
         $data = array(
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
-            'nickname' => $this->input->post('nickname')
+            'nickname' => $this->input->post('nickname'),
+            'date' => $date
         );
         $query = $this->db->insert('users', $data);
         return $data;

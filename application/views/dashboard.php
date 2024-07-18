@@ -13,9 +13,11 @@
     <input type="text" name="newname" placeholder="نام جدید خود را وارد کنید">
     <input type="submit" value="changename" name="job">
 </form>
+<a href="<?= base_url('/factories') ?>">مشاهده کارخانه ها</a>
 <form method="post">
     <input type="submit" name="job" value="logout">
     <input type="submit" name="job" value="deleteaccount">
 </form>
+
 
 </html>

@@ -14,5 +14,7 @@
     <input type="password" name="password" placeholder="رمز عبور خود را وارد کنید">
     <input type="submit" value="ثبت نام">
 </form>
+<h4>already have an account? <a href="<?= base_url('/signin')  ?>">log in</a></h4>
+
 
 </html>

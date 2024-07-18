@@ -15,7 +15,7 @@
         <input type="submit">
 
     </form>
-    <h4>dont have an account? <a href="#">create one</a></h4>
+    <h4>dont have an account? <a href="<?= base_url('/signup')  ?>">create one</a></h4>
 
 </body>
 
