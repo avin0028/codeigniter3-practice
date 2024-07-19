@@ -15,7 +15,6 @@ class Factories extends CI_Controller
 
         if ($this->form_validation->run()) {
             $id = $this->input->post('deletefactory');
-            var_dump($id);
             $this->Factories_model->deleteFactory($id);
             redirect('/factories', 'refresh');
         }
