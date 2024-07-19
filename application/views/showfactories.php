@@ -12,6 +12,7 @@
         <thead>
             <th>عنوان</th>
             <th>آدرس</th>
+            <th>محصولات</th>
             <th>کارمندان</th>
             <th>حذف</th>
 
@@ -27,7 +28,8 @@
                 <tr>
                     <td><?= $row['title'] ?></td>
                     <td><?= $row['address'] ?></td>
-                    <td><a href='<?= base_url("/employees/?factoryid={$row['id']}") ?>'>مشاهده</a></td>
+                    <td><a href='<?= base_url("/products/?factoryid={$row['id']}") ?>'>محصولات</a></td>
+                    <td><a href='<?= base_url("/employees/?factoryid={$row['id']}") ?>'>کارمندان</a></td>
                     <td>
                         <form method="post">
                             <input type="hidden" name="deletefactory" value="<?= $row['id'] ?>">

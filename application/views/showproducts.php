@@ -9,28 +9,29 @@
 <body>
     <table>
         <thead>
-            <th>نام کارمند</th>
-            <th>حذف کارمند</th>
-
+            <th>نام محصول</th>
+            <th>رنگ محصول</th>
+            <th>حذف محصول</th>
         </thead>
-        <tbody>
-            <!-- //form open messessap everything2 -->
-            <!-- //<?php echo form_open("employees"); ?> -->
-            <?php foreach ($result as $row) { ?>
+        <?php foreach ($result as $row) { ?>
+            <tbody>
+
                 <td><?= $row['name'] ?></td>
+                <td><?= $row['color'] ?></td>
+
                 <td>
                     <form method="post">
-                        <input type="hidden" name="deleteemployee" value="<?= $row['id'] ?>">
+                        <input type="hidden" name="deleteproduct" value="<?= $row['id'] ?>">
                         <input type="submit" value="delete">
                     </form>
                 </td>
+            </tbody>
 
-            <?php
-            }
-            ?>
-        </tbody>
+        <?php
+        }
+        ?>
+        <a href="<?= base_url("/products/addnew?factoryid={$factoryid}") ?>">افزودن محصول</a>
     </table>
-    <a href="">افزودن کارمند</a>
     <a href="">لیست کارخانه</a>
     <a href="<?= base_url('/') ?>">داشبورد </a>
 
