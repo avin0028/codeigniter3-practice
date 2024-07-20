@@ -13,22 +13,26 @@
             <th>نام کارمند</th>
             <th>نام کارخانه</th>
             <th>تعداد</th>
+            <th>تاریخ تولید</th>
         </thead>
-        <tbody>
-            <?php foreach ($result as $row) {
-            ?>
-                <td><?= $row['product_name'] ?></td></br>
-                <td><?= $row['employee_name'] ?></td></br>
-                <td><?= $row['factories_name'] ?></td></br>
-                <td><?= $row['produced'] ?></td></br>
+        <?php foreach ($result as $row) {
+        ?>
+            <tbody>
+                <td><?= $row['product_name'] ?></td>
+                <td><?= $row['employee_name'] ?></td>
+                <td><?= $row['factories_name'] ?></td>
+                <td><?= $row['produced'] ?></td>
+                <td><?= date('d-m-y', intval($row['date'])) ?></td>
+
+
+
+            </tbody>
+        <?php
+        }
+        ?>
     </table>
-
-
-<?php
-            }
-?>
-</tbody>
-<a href="<?= base_url('/') ?>">داشبورد</a>
+    <a href="<?= base_url('/producers/produce') ?>">تولید جدید</a>
+    <a href="<?= base_url('/') ?>">داشبورد</a>
 </body>
 
 </html>
