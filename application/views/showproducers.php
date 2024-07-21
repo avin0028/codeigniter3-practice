@@ -10,7 +10,7 @@
 <body class="bg-light">
 
     <div class="container my-4">
-        <h2 class="text-center mb-4">لیست تولیدات</h2>
+        <?= $nav ?>
         <table class="table table-striped table-bordered">
             <thead class="table-dark">
                 <tr>

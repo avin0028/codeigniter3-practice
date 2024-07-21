@@ -23,11 +23,24 @@ class Signup extends CI_Controller
         if ($this->form_validation->run()) {
 
             $this->load->model('users_model');
-            $result = $this->users_model->setUser();
-            $userData = array(
-                "username" => $result['username'],
-                "nickname" => $result['nickname']
-            );
+            $input_username = $this->input->post('username');
+            $query = $this->db->get_where("users", ["username" => $input_username]);
+            if ($query->num_rows() == 1) {
+                echo "duplicate username";
+                return;
+            }
+            $date = date('sihmY'); //second,minute,hour, month, year
+            $data = [
+                'username' => $this->input->post('username'),
+                'password' => $this->input->post('password'),
+                'nickname' => $this->input->post('nickname'),
+                'date' => $date
+            ];
+            $result = $this->users_model->setUser($data);
+            $userData = [
+                "username" => $result[0]['username'],
+                "nickname" => $result[0]['nickname']
+            ];
             $this->session->set_userdata($userData);
             redirect('/', 'refresh');
         }

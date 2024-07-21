@@ -16,7 +16,9 @@ class Employees extends CI_Controller
         $this->form_validation->set_rules('deleteemployee', 'deleteemployee', 'required');
         $data['result'] = $this->Employees_model->getEmployees($factory_id);
         $data['title'] = 'مشاهده کارمندان';
+        $data['nav'] = $this->load->view('navbar', $data, true);
         $this->load->view('showemployees', $data);
+
         if ($this->form_validation->run()) {
             echo "pain";
             $id = $this->input->post('deleteemployee');
@@ -34,14 +36,14 @@ class Employees extends CI_Controller
         $this->form_validation->set_rules('employee_name', 'employee_name', 'required');
         $this->load->view('addemplooyee', $data);
         if ($this->form_validation->run()) {
-            $date = date('sihmY'); //second,minute,hour, month, year
-            $data = array(
+            $date = time('sihmY'); //second,minute,hour, month, year
+            $data = [
                 "name" => $this->input->post('employee_name'),
                 "factory_id" => $this->input->post('factoryid'),
                 "date" => $date
-            );
-            $this->Employees_model->setEmployees($data);
-            redirect('/factories', 'refresh');
+            ];
+            $this->Employees_model->addEmployee($data);
+            redirect("/factories", 'refresh');
         }
     }
 }

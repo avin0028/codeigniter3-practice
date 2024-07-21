@@ -1,23 +1,20 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Products_model extends CI_Model
+class Products_model extends My_Model
 {
+    protected $table_name = "products";
 
     public function getproducts($factory_id)
     {
-        $condition = array(
-            "factory_id" => $factory_id
-        );
-        $query = $this->db->get_where('products', $condition);
-        return $query->result_array();
+        return $this->get_where(["factory_id" => $factory_id]);
     }
-    public function setproduct($data)
+    public function addproduct($data)
     {
-        $this->db->insert('products', $data);
+        return $this->insert($data);
     }
     public function removeProduct($id)
     {
-        $this->db->delete("products", array("id" => $id));
+        return $this->db->delete(["id" => $id]);
     }
 }

@@ -11,7 +11,7 @@
 <body class="bg-light">
 
     <div class="container my-4">
-        <h1 class="text-center mb-4">لیست کارمندان</h1>
+        <?= $nav ?>
 
         <div class="table-container" style="max-width: 400px; margin: 0 auto;">
             <table class="table table-striped table-bordered">

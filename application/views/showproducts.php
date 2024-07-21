@@ -12,8 +12,7 @@
 
     <div class="container my-4">
         <div style="max-width: 800px; margin: 0 auto;">
-            <h1 class="text-center mb-4">لیست محصولات</h1>
-
+            <?= $nav ?>
             <table class="table table-striped table-bordered">
                 <thead class="table-dark">
                     <tr>

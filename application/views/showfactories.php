@@ -10,7 +10,7 @@
 <body class="bg-light">
 
     <div class="container my-4">
-        <h1 class="text-center mb-4">لیست کارخانه ها</h1>
+        <?= $nav ?>
         <?php if (!empty($result)) { ?>
             <table class="table table-striped table-bordered">
                 <thead class="table-dark">

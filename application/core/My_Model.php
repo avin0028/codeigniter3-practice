@@ -16,15 +16,20 @@ class My_Model extends CI_Model
     {
         return $this->db->insert($this->table_name, $data);
     }
+    protected function update($condition, $data)
+    {
+        $this->db->where($condition);
+        return $this->db->update($this->table_name, $data);
+    }
     protected function delete($condition)
     {
-        return $this->db->delete($table_name, $condition);
+        return $this->db->delete($this->table_name, $condition);
     }
 
     protected function query($q)
     {
         $res =  $this->db->query($q);
-        return $res;
+        return $res->result_array();;
     }
 }
 

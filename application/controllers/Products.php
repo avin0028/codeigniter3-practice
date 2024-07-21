@@ -22,6 +22,8 @@ class Products extends CI_Controller
             $this->Products_model->removeProduct($id);
             redirect(current_url() . "?factoryid={$factory_id}", 'refresh');
         }
+        $data['nav'] = $this->load->view('navbar', $data, true);
+
 
         $this->load->view('showproducts', $data);
     }
@@ -43,13 +45,13 @@ class Products extends CI_Controller
 
         if ($this->form_validation->run()) {
             $date = date('sihmY'); //second,minute,hour, month, year
-            $data = array(
+            $data = [
                 'name' => $this->input->post('name'),
                 'color' => $this->input->post('color'),
                 'factory_id' => $this->input->get('factoryid'),
                 "date" => $date
-            );
-            $this->Products_model->setproduct($data);
+            ];
+            $this->Products_model->addproduct($data);
             redirect("/products?factoryid={$factory_id}", 'refresh');
         }
     }

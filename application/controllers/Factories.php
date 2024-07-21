@@ -10,7 +10,10 @@ class Factories extends CI_Controller
         $data['result'] = $this->Factories_model->getFactories();
         $this->load->library('form_validation');
 
+        $data['nav'] = $this->load->view('navbar', $data, true);
         $this->load->view('showfactories', $data);
+
+
         $this->form_validation->set_rules('deletefactory', 'deletefactory', 'required');
 
         if ($this->form_validation->run()) {

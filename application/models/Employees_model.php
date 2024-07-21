@@ -8,15 +8,14 @@ class Employees_model extends My_Model
     public function getEmployees($factory_id)
     {
 
-        $query = $this->get_where('employees', ["factory_id" => $factory_id]);
-        return $query->result_array();
+        return $this->get_where(["factory_id" => $factory_id]);
     }
-    public function setEmployees($data)
+    public function addEmployee($data)
     {
-        $this->insert($data);
+        return $this->insert($data);
     }
     public function removeEmployee($id)
     {
-        $this->delete(['id' => $id]);
+        return $this->delete(['id' => $id]);
     }
 }

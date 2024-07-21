@@ -76,11 +76,16 @@ class Signin extends CI_Controller
         if ($this->form_validation->run()) {
 
             $this->load->model('users_model');
-            $result = $this->users_model->getUser();
-            $userData = array(
-                "username" => $result['username'],
-                "nickname" => $result['nickname']
-            );
+            $d = [
+                'username' => $this->input->post('username'),
+                'password' => $this->input->post('password')
+            ];
+            $result = $this->users_model->getUser($d);
+            var_dump($result);
+            $userData = [
+                "username" => $result[0]["username"],
+                "nickname" => $result[0]['nickname']
+            ];
             $this->session->set_userdata($userData);
             redirect('/', 'refresh');
         }

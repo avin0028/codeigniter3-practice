@@ -6,9 +6,10 @@ class Producers extends CI_Controller
     public function index()
     {
         $this->load->model('Producers_model');
-        $data['title'] = 'تولیدات';
+        $data['title'] = 'لیست تولیدات';
         $username = $_SESSION['username'];
         $data['result'] = $this->Producers_model->getProducers($username);
+        $data['nav'] = $this->load->view('navbar', $data, true);
         $this->load->view('showproducers', $data);
     }
     public function produce()
@@ -26,13 +27,13 @@ class Producers extends CI_Controller
 
         if ($this->form_validation->run()) {
             $date = date('sihmY'); //second,minute,hour, month, year
-            $data = array(
+            $data = [
                 "employee_id" => $this->input->post('employee'),
                 "product_id" => $this->input->post('product'),
                 "count" => $this->input->post('quantity'),
                 "date" => $date
-            );
-            $this->Producers_model->setProducer($data);
+            ];
+            $this->Producers_model->addProducer($data);
             redirect('/producers', 'refresh');
         }
 

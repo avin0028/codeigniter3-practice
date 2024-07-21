@@ -25,12 +25,15 @@ class Dashboard extends CI_Controller
             $this->session->unset_userdata(array('username', 'nickname'));
         }
         if ($this->input->post('job') == 'changename') {
+
             $this->load->model('users_model');
-            $this->users_model->setNickname();
+            $this->users_model->changeNickname(["username" => $_SESSION['username']], ['nickname' => $this->input->post('newname')]);
+            $_SESSION['nickname'] = $this->input->post('newname');
+            redirect('/', 'refresh');
         }
         if ($this->input->post('job') == "deleteaccount") {
             $this->load->model('users_model');
-            $this->users_model->removeUser();
+            $this->users_model->removeUser(['username' => $_SESSION['username']]);
             echo "حساب شما حذف شد";
             $this->session->unset_userdata(array('username', 'nickname'));
             redirect('/signin', 'refresh');
