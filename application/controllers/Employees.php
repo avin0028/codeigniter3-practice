@@ -41,6 +41,7 @@ class Employees extends CI_Controller
                 "date" => $date
             );
             $this->Employees_model->setEmployees($data);
+            redirect('/factories', 'refresh');
         }
     }
 }

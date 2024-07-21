@@ -1,0 +1,20 @@
+{
+    "status":true,
+    "data":[
+        {
+            "name":"abbas",
+            "age":25,
+            "married" : null
+        },
+        {
+            "name":"abbas",
+            "age":25,
+            "married" : null
+        },
+        {
+            "name":"abbas",
+            "age":25,
+            "married" : null
+        }
+    ]
+}
